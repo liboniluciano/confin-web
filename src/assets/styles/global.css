@@ -1,0 +1,35 @@
+:root {
+  font-size: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  font: 500 1.6rem Poppins;
+}
+
+.container {
+  width: 90vw;
+  max-width: 70vw;
+}
+
+/* Dispositivos largura no minimo 700px */
+@media(min-width: 70rem){
+  :root {
+    font-size: 70%;
+  }
+}
