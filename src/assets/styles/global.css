@@ -26,10 +26,3 @@ body {
   width: 90vw;
   max-width: 70vw;
 }
-
-/* Dispositivos largura no minimo 700px */
-@media(min-width: 70rem){
-  :root {
-    font-size: 70%;
-  }
-}
