@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../contexts/auth';
+
 import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput } from './styles';
 
 interface IFormInput {
@@ -10,9 +12,11 @@ interface IFormInput {
 }
 
 const Login: React.FC = () => {
+  const context = useAuth();
+
   const { register, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = handleSubmit(({ mail, password }: IFormInput) => {
-    console.log(password, mail);
+    context.Login(mail, password);
   });
 
   return(
