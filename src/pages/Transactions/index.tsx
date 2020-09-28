@@ -1,17 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+
+import api from '../../services/api';
 
 import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput, Select, OptionSelect } from './styles';
 
 interface IFormInput {
   name: string;
   value: number;
+  typeTransaction: number;
 }
 
 const Transactions: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<IFormInput>();
-  const onSubmit = handleSubmit(({ name, value }: IFormInput) => {
-    console.log(name, value);
+
+  const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
+    const data = { name, value, typeTransaction };
+
+    console.log(data);
+    const response = await api.post('/usersTransactions', {
+      headers: {
+        Authorization: sessionStorage.getItem('@AppConFin:token')
+      },
+      name,
+      value, 
+      typeTransaction
+    });
+
+    console.log(response.status);
   });
 
   return(
@@ -29,7 +46,7 @@ const Transactions: React.FC = () => {
         </FormItems>
         <FormItems>
           <LabelInput>Valor</LabelInput>
-          <Input name="password" type="password" ref={register({ 
+          <Input name="value" type="text" ref={register({ 
             required: "Campo obrigatório",
           })} 
           />
@@ -37,7 +54,9 @@ const Transactions: React.FC = () => {
         </FormItems>
         <FormItems>
           <LabelInput>Tipo Transação</LabelInput>
-          <Select>
+          <Select name="typeTransaction" ref={register({ 
+              required: "Campo obrigatório",
+            })} >
             <OptionSelect value={1}>
               Income
             </OptionSelect>
@@ -48,7 +67,9 @@ const Transactions: React.FC = () => {
         </FormItems>
         <FormItems>
           <Button type='submit' onSubmit={onSubmit}>Cadastrar</Button>
-          <Button type='button' onSubmit={onSubmit}>Saldo</Button>
+          <Link to="/teste">
+            <Button type='button' onSubmit={onSubmit}>Saldo</Button>
+          </Link>
         </FormItems>
       </Form>
       </Fieldset>
