@@ -8776,6 +8776,11 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-flexy-table@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-flexy-table/-/react-flexy-table-1.1.1.tgz#f12a043e57dc05deab1b0a25fa9552cbfae5bbe4"
+  integrity sha512-4Ge8eTGvaCOtVbZp3fCDaeaYy+H3eWxiOAD6qJ9tPzoplS25lazESsmwwM462g1uq4/fluwWJM0sVF2uqyWbKg==
+
 react-hook-form@^6.8.6:
   version "6.8.6"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.8.6.tgz#c82b38b01e0a77689214c3ceb873eab9405d27a0"
