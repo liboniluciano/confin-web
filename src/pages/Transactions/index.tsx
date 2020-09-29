@@ -13,7 +13,7 @@ interface IFormInput {
 }
 
 const Transactions: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm<IFormInput>();
+  const { register, handleSubmit, errors, reset } = useForm<IFormInput>();
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
 
@@ -26,6 +26,8 @@ const Transactions: React.FC = () => {
       typeTransaction
     });
 
+    reset();
+
     console.log('statusssssss', response.status);
   });
 
@@ -33,7 +35,7 @@ const Transactions: React.FC = () => {
     <Container>
       <Fieldset>
       <Title>Cadastrar Transação</Title>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} id="create-transaction">
 
         <FormItems>
            <LabelInput>Nome</LabelInput>
