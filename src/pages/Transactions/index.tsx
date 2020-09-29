@@ -34,7 +34,8 @@ const Transactions: React.FC = () => {
       <Fieldset>
       <Title>Cadastrar Transação</Title>
       <Form onSubmit={onSubmit}>
-        <FormItems className="form-items">
+
+        <FormItems>
            <LabelInput>Nome</LabelInput>
           <Input className="input" name="name" ref={register({ 
             required: "Campo obrigatório",
@@ -42,17 +43,19 @@ const Transactions: React.FC = () => {
           />
           {errors.name && errors.name.message}
         </FormItems>
+
         <FormItems className="form-items">
           <LabelInput>Valor</LabelInput>
-          <Input className="input" name="value" type="text" ref={register({ 
+          <Input name="value" type="text" ref={register({ 
             required: "Campo obrigatório",
           })} 
           />
           {errors.value && errors.value.message}
         </FormItems>
+
         <FormItems className="form-items">
           <LabelInput>Tipo Transação</LabelInput>
-          <Select className="input" name="typeTransaction" ref={register({ 
+          <Select name="typeTransaction" ref={register({ 
               required: "Campo obrigatório",
             })} >
             <OptionSelect value={1}>
@@ -63,6 +66,7 @@ const Transactions: React.FC = () => {
             </OptionSelect>
           </Select>
         </FormItems>
+        
         <FormItems className="form-items">
           <Button type='submit' onSubmit={onSubmit}>Cadastrar</Button>
           <Link to="/teste">

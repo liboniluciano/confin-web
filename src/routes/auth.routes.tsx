@@ -9,7 +9,7 @@ import SignUp from '../pages/SignUp';
 const AuthRoutes: React.FC = () => {
   return (
     <BrowserRouter>
-      <Route path="/" component={Login}/>
+      <Route path="/" exact component={Login}/>
       <Route path="/signUp" component={SignUp} />
     </BrowserRouter>
   );

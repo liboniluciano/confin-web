@@ -38,7 +38,21 @@ export const FormItems = styled.div`
 
 export const LabelInput = styled.label``;
 
-export const Input = styled.input``;
+export const Input = styled.input`
+  height: 5rem;
+  width: 25rem;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid #000;
+  outline: 0;
+  padding: 0 1.6rem;
+  font-size: 1.6rem;
+  @media(min-width: 70rem){
+    height: 7rem;
+    width: 50rem;
+    font-size: 2rem;
+  }
+`;
 
 export const Select = styled.select`
  height: 5rem;

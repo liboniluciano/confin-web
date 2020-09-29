@@ -10,7 +10,6 @@ interface IFormInput {
   password: number;
 }
 
-
 const SignUp: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = handleSubmit(({ name, mail, password }: IFormInput) => {
