@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
@@ -17,18 +18,29 @@ const Transactions: React.FC = () => {
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
 
-    const response = await api.post('/usersTransactions', {
+    const request = await  api.post('/usersTransactions', {
       headers: {
         Authorization: sessionStorage.getItem('@AppConFin:token')
       },
       name,
       value, 
       typeTransaction
+    }).then((response) => {
+      return response;
+    }).catch((err) => {
+      return err.response;
     });
+
+    if(request.status === 201) {
+      toast.success('Transação criada com sucesso!');
+    }
+
+    if(request.status === 401) {
+      toast.error(request.data.erro);
+    }
 
     reset();
 
-    console.log('statusssssss', response.status);
   });
 
   return(
