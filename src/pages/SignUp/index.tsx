@@ -1,6 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import { toast } from 'react-toastify';
+
+import api from '../../services/api';
 
 import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput } from './styles';
 
@@ -11,9 +16,26 @@ interface IFormInput {
 }
 
 const SignUp: React.FC = () => {
+  const { push } = useHistory();
+
   const { register, handleSubmit, errors } = useForm<IFormInput>();
-  const onSubmit = handleSubmit(({ name, mail, password }: IFormInput) => {
-    console.log(name, mail);
+  const onSubmit = handleSubmit(async ({ name, mail, password }: IFormInput) => {
+    try {
+      const response = await api.post('/users', {
+        name,
+        mail,
+        password
+      });
+
+      console.log('responseeeee', response);
+
+      if(response.status === 201) {
+        toast.success('Cadastro realizado com sucesso!');
+        push('/');
+      } 
+    } catch(err) {
+      toast.error(err.message);
+    }
   });
 
   return(
