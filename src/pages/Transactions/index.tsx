@@ -16,9 +16,7 @@ const Transactions: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<IFormInput>();
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
-    const data = { name, value, typeTransaction };
 
-    console.log(data);
     const response = await api.post('/usersTransactions', {
       headers: {
         Authorization: sessionStorage.getItem('@AppConFin:token')
@@ -28,7 +26,7 @@ const Transactions: React.FC = () => {
       typeTransaction
     });
 
-    console.log(response.status);
+    console.log('statusssssss', response.status);
   });
 
   return(
