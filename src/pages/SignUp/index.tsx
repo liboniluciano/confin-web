@@ -22,9 +22,9 @@ const SignUp: React.FC = () => {
       <Fieldset>
       <Title>Entrar</Title>
       <Form onSubmit={onSubmit}>
-        <FormItems>
+        <FormItems className="form-items">
         <LabelInput>Nome</LabelInput>
-        <Input name="name" ref={register({ 
+        <Input className="input" name="name" ref={register({ 
             required: "Campo obrigatório",
             minLength: {
               value: 5,
@@ -38,9 +38,9 @@ const SignUp: React.FC = () => {
           />
           {errors.name && errors.name.message}
         </FormItems>
-        <FormItems>
+        <FormItems className="form-items">
           <LabelInput>E-mail</LabelInput>
-          <Input name="mail" type="email" ref={register({ 
+          <Input className="input" name="mail" type="email" ref={register({ 
             required: "Campo obrigatório",
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -50,9 +50,9 @@ const SignUp: React.FC = () => {
           />
           {errors.mail && errors.mail.message}
         </FormItems>
-        <FormItems>
+        <FormItems className="form-items">
           <LabelInput>Senha</LabelInput>
-          <Input name="password" type="password" ref={register({ 
+          <Input className="input" name="password" type="password" ref={register({ 
             required: "Campo obrigatório",
             minLength: {
               value: 6,
@@ -67,10 +67,10 @@ const SignUp: React.FC = () => {
           {errors.password && errors.password.message}
 
         </FormItems>
-        <FormItems>
+        <FormItems className="form-items">
           <Button type='submit' onSubmit={onSubmit}>Entrar</Button>
         </FormItems>
-        <FormItems>
+        <FormItems className="form-items">
           <Link to="/">Voltar</Link>
         </FormItems>
 
