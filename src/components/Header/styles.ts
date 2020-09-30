@@ -20,7 +20,7 @@ export const HeaderImg = styled.img.attrs({
 width: 25rem;
 `
 
-export const ItemMenu = styled.p`
+export const ItemMenu = styled.span`
   margin-right: 1.5rem;
   max-width: 100vw;
   display: flex;

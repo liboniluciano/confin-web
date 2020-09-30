@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth';
 
 
@@ -7,7 +7,16 @@ import { MenuContent, ItemMenu, HeaderImg } from './styles';
 
 
 const Header: React.FC = () => {
-  const { signed } = useAuth();
+  const { push } = useHistory();
+  const { signed, Logout } = useAuth();
+
+  const logOut = () => {
+    const confirm = window.confirm('Deseja realmente sair do sistema?')
+    if(confirm) {
+      Logout();
+      push('/');
+    }
+  }
 
   return (
     <MenuContent>
@@ -22,9 +31,7 @@ const Header: React.FC = () => {
         </ItemMenu>
       </Link>
       {signed ? <> 
-      <Link to="/about" style={{ textDecoration: 'none' }}>
-        <ItemMenu>SAIR</ItemMenu>
-      </Link>
+        <ItemMenu onClick={logOut}>SAIR</ItemMenu>
       </> : null }
     </MenuContent>
   );
