@@ -4,10 +4,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: auto;
 `;
 
 export const Fieldset = styled.fieldset`
- border: none;
+  border: none;
   width: 30rem;
   height: 50rem;
   margin-top: 3rem;
