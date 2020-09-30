@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
@@ -15,7 +15,24 @@ interface IFormInput {
   typeTransaction: number;
 }
 
+interface TypeTransaction {
+  id: number;
+  name: string;
+}
+
 const Transactions: React.FC = () => {
+  const [typeTransaction, setTypeTransaction] = useState([]);
+
+  const findTypesTransactions = async () => {
+    const transactions = await api.get('/typesTransactions');
+
+    setTypeTransaction(transactions.data);
+  }
+
+  useEffect(() => {
+    findTypesTransactions();
+  }, []);
+
   const { register, handleSubmit, errors, reset } = useForm<IFormInput>();
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
@@ -80,12 +97,11 @@ const Transactions: React.FC = () => {
             <Select name="typeTransaction" ref={register({
               required: "Campo obrigatório",
             })} >
-              <OptionSelect value={1}>
-                Income
-            </OptionSelect>
-              <OptionSelect value={2}>
-                Outcome
-            </OptionSelect>
+              {typeTransaction.map((types: TypeTransaction) =>{
+                return (
+                  <OptionSelect key={types.id} value={types.id}>{types.name}</OptionSelect>
+                )
+              })}
             </Select>
           </FormItems>
 
