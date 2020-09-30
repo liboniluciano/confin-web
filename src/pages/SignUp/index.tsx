@@ -102,7 +102,7 @@ const SignUp: React.FC = () => {
           </FormItems>
 
           <FormItems className="form-items">
-            <Button type='submit' onSubmit={onSubmit}>Entrar</Button>
+            <Button type='submit' onSubmit={onSubmit}>Criar conta</Button>
           </FormItems>
           
           <FormItems className="form-items">
