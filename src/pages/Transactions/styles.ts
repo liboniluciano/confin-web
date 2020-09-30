@@ -8,7 +8,6 @@ export const Container = styled.div`
   margin-bottom: auto;
 `;
 
-
 export const Fieldset = styled.fieldset`
   border: none; 
   width: 30rem;
@@ -86,16 +85,21 @@ export const Select = styled.select`
 `;
 
 export const OptionSelect = styled.option`
- 
+`;
+
+export const ButtonsContainer = styled.div`
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
 `;
 
 export const Button = styled.button`
   font-size: 2.5rem;
   color: #FFF;
   margin-top: 3rem;
-  width: 25rem;
+  width: 18rem;
   height: 5rem;
-  background: #1f4068;
+  background: #0f4c75;
   border: 0;
   border-radius: 0.8rem;
   cursor: pointer;

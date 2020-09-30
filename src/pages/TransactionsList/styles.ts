@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   --rft-main-color: #3282b8;
   --rft-button-color: #3282b8;
-  --rft-even-row-color: #fff;
+  --rft-even-row-color:	#a3a3a3 ;
   flex-direction: column;
   display: flex;
   justify-content: center;

@@ -70,7 +70,7 @@ const TransactionsList = () => {
      
         {
           !isLoading && transactions && transactions.length > 0 && 
-            <ReactFlexyTable 
+            <ReactFlexyTable className="table-transacitons"
             data={transactions ?? []}
             nonFilterCols={["value","typeTransaction"]} 
             filterable

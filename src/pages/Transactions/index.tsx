@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
-import { Container, Fieldset, Title, Form, FormItems, Input, LabelError, Button, LabelInput, Select, OptionSelect } from './styles';
+import { Container, Fieldset, Title, Form, FormItems, Input, LabelError, Button, LabelInput, Select, OptionSelect, ButtonsContainer } from './styles';
 
 import Header from '../../components/Header';
 
@@ -105,12 +105,12 @@ const Transactions: React.FC = () => {
             </Select>
           </FormItems>
 
-          <FormItems className="form-items">
+          <ButtonsContainer>
             <Button type='submit' onSubmit={onSubmit}>Cadastrar</Button>
             <Link to="/transactions">
               <Button type='button' onSubmit={onSubmit}>Saldo</Button>
             </Link>
-          </FormItems>
+          </ButtonsContainer>
         </Form>
       </Fieldset>
 
