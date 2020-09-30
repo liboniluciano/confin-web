@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactFlexyTable from "react-flexy-table";
 import "react-flexy-table/dist/index.css"
+import Header from '../../components/Header';
 
 import api from '../../services/api';
 import { Container, Content, BalanceContent ,BalanceInfo, BalanceText } from './styles';
@@ -49,6 +50,7 @@ const TransactionsList = () => {
   return (
     <Container>
       <Content>
+        <Header />
         <BalanceContent>
           <BalanceInfo>
             <BalanceText></BalanceText>

@@ -1,23 +1,25 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: auto;  
 `;
 
 export const Content = styled.div`
   --rft-main-color: #3282b8;
   --rft-button-color: #3282b8;
   --rft-even-row-color: #fff;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-`;
+  `;
 
 export const BalanceContent = styled.div`
+  color: #fff;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;

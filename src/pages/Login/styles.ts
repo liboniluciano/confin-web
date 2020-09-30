@@ -10,6 +10,8 @@ export const Fieldset = styled.fieldset`
   border: none;
   width: 30rem;
   height: 50rem;
+  margin-top: 3rem;
+
   @media(min-width: 70rem){
     width: 80rem;
     height: 60rem;

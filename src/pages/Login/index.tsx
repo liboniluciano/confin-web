@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Header from '../../components/Header';
 
 import { useAuth } from '../../contexts/auth';
 import api from '../../services/api';
@@ -39,6 +40,7 @@ const Login: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <Fieldset>
         <Title>Entrar</Title>
         <Form onSubmit={onSubmit}>

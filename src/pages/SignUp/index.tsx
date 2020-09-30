@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
+import Header from '../../components/Header';
 
 import api from '../../services/api';
 
@@ -42,6 +43,7 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <Fieldset>
         <Title>Cadastrar</Title>
         <Form onSubmit={onSubmit}>

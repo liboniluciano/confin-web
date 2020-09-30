@@ -7,6 +7,8 @@ import api from '../../services/api';
 
 import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput, Select, OptionSelect } from './styles';
 
+import Header from '../../components/Header';
+
 interface IFormInput {
   name: string;
   value: number;
@@ -46,6 +48,7 @@ const Transactions: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <Fieldset>
         <Title>Cadastrar Transação</Title>
         <Form onSubmit={onSubmit} id="create-transaction">
