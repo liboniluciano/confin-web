@@ -61,6 +61,13 @@ export const Input = styled.input`
   }
 `;
 
+export const LabelError = styled.label`
+  color: #ea5455;
+  font-size: 1.3rem;
+  text-align: center;
+`;
+
+
 export const Select = styled.select`
  height: 5rem;
   width: 25rem;

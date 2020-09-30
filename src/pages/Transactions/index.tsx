@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
-import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput, Select, OptionSelect } from './styles';
+import { Container, Fieldset, Title, Form, FormItems, Input, LabelError, Button, LabelInput, Select, OptionSelect } from './styles';
 
 import Header from '../../components/Header';
 
@@ -59,16 +59,20 @@ const Transactions: React.FC = () => {
               required: "Campo obrigatório",
             })}
             />
-            {errors.name && errors.name.message}
+            <LabelError>{errors.name && errors.name.message}</LabelError>
           </FormItems>
 
           <FormItems className="form-items">
             <LabelInput>Valor</LabelInput>
             <Input name="value" type="text" ref={register({
+              pattern: {
+                value: /^[0-9]{1,6}(\\.\\d{1,2})?$/,
+                message: 'São válidos valores numéricos'
+              },
               required: "Campo obrigatório",
             })}
             />
-            {errors.value && errors.value.message}
+            <LabelError>{errors.value && errors.value.message}</LabelError>
           </FormItems>
 
           <FormItems className="form-items">
