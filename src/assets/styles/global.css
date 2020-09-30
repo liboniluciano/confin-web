@@ -9,6 +9,7 @@
 }
 
 html, body, #root {
+  background: #1b262c;
   height: 100vh;
 }
 
@@ -16,6 +17,7 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 body {

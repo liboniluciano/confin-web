@@ -7,6 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Fieldset = styled.fieldset`
+ border: none;
   width: 30rem;
   height: 50rem;
 
@@ -17,11 +18,11 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const Title = styled.h1`
+  color: #fff;
   text-align: center;
-  font: 700 3rem Archivo;
-
+  font: 700 3rem Poppins;
   @media(min-width: 70rem){
-    font: 700 5rem Archivo;
+    font: 700 5rem Poppins;
   }
 `;
 
@@ -31,7 +32,9 @@ export const Form = styled.form`
 
 export const FormItems = styled.div``;
 
-export const LabelInput = styled.label``;
+export const LabelInput = styled.label`
+  color: #fff;
+`;
 
 export const Input = styled.input`
   text-align: center;

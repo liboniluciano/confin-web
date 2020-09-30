@@ -43,7 +43,7 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <Fieldset>
-        <Title>Entrar</Title>
+        <Title>Cadastrar</Title>
         <Form onSubmit={onSubmit}>
           <FormItems className="form-items">
             <LabelInput>Nome</LabelInput>

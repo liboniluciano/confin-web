@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- --rft-main-color: #003ab8;
-  --rft-button-color: #003ab8;
-  --rft-even-row-color: #f3f3f3;
+
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const Content = styled.div`
+  --rft-main-color: #3282b8;
+  --rft-button-color: #3282b8;
+  --rft-even-row-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,5 +31,9 @@ export const BalanceInfo = styled.div`
 `;
 
 export const BalanceText = styled.h3``;
+
+export const Teste = styled.table`
+  color: #fff !important;
+`;
 
 

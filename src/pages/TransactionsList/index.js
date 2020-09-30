@@ -67,19 +67,20 @@ const TransactionsList = () => {
         </BalanceContent>
      
         {
-          !isLoading && transactions && transactions.length > 0 && <ReactFlexyTable 
-          data={transactions ?? []}
-          nonFilterCols={["value","typeTransaction"]} 
-          filterable
-          pageSizeOptions={[5, 10]}
-          previousText="Anterior"
-          nextText="Próxima"
-          rowsText=" "
-          pageText=" Página"
-          ofText="de "
-          filteredDataText="Resultados filtrados "
-          totalDataText="Total de registros "
-          />
+          !isLoading && transactions && transactions.length > 0 && 
+            <ReactFlexyTable 
+            data={transactions ?? []}
+            nonFilterCols={["value","typeTransaction"]} 
+            filterable
+            pageSizeOptions={[5, 10]}
+            previousText="Anterior"
+            nextText="Próxima"
+            rowsText=" "
+            pageText=" Página"
+            ofText="de "
+            filteredDataText="Resultados filtrados "
+            totalDataText="Total de registros "
+            />
         }
       </Content>
     </Container>
