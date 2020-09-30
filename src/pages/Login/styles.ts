@@ -14,7 +14,7 @@ export const Fieldset = styled.fieldset`
   height: 50rem;
   margin-top: 3rem;
 
-  @media(min-width: 70rem){
+  @media (min-width: 70rem) {
     width: 80rem;
     height: 60rem;
   }
@@ -24,13 +24,12 @@ export const Title = styled.h1`
   color: #fff;
   text-align: center;
   font: 700 3rem Poppins;
-  @media(min-width: 70rem){
+  @media (min-width: 70rem) {
     font: 700 5rem Poppins;
   }
-  `;
-
-export const Form = styled.form`
 `;
+
+export const Form = styled.form``;
 
 export const FormItems = styled.div`
   margin-bottom: 2rem;
@@ -54,7 +53,7 @@ export const Input = styled.input`
   outline: 0;
   padding: 0 1.6rem;
   font-size: 1.6rem;
-  @media(min-width: 70rem){
+  @media (min-width: 70rem) {
     height: 7rem;
     width: 50rem;
     font-size: 2rem;
@@ -69,7 +68,7 @@ export const LabelError = styled.label`
 
 export const Button = styled.button`
   font-size: 2.5rem;
-  color: #FFF;
+  color: #fff;
   margin-top: 3rem;
   width: 25rem;
   height: 5rem;

@@ -10,15 +10,15 @@ export const MenuContent = styled.div`
   align-items: center;
   background: #202020;
   margin-bottom: auto;
-  @media(min-width: 700px){
+  @media (min-width: 700px) {
   }
 `;
 
 export const HeaderImg = styled.img.attrs({
-  src: logo
+  src: logo,
 })`
-width: 25rem;
-`
+  width: 25rem;
+`;
 
 export const ItemMenu = styled.span`
   margin-right: 1.5rem;
