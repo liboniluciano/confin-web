@@ -26,16 +26,16 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   async function Login(mail: string, password: string) {
-    const response = await api.post('/session', {
+    const request = await api.post('/session', {
       mail,
       password
     });
   
-    setUser(response.data);
-    api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
+    setUser(request.data);
+    api.defaults.headers.Authorization = `Bearer ${request.data.token}`;
 
-    sessionStorage.setItem('@AppConFin:user', JSON.stringify(response.data.user));
-    sessionStorage.setItem('@AppConFin:token', response.data.token);
+    sessionStorage.setItem('@AppConFin:user', JSON.stringify(request.data.user));
+    sessionStorage.setItem('@AppConFin:token', request.data.token);
   }
 
   function Logout() {

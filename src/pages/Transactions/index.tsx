@@ -26,8 +26,10 @@ const Transactions: React.FC = () => {
       value,
       typeTransaction
     }).then((response) => {
+      console.log(response);
       return response;
     }).catch((err) => {
+      console.log(err);
       return err.response;
     });
 
