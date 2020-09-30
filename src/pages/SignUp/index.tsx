@@ -98,7 +98,7 @@ const SignUp: React.FC = () => {
           </FormItems>
           
           <FormItems className="form-items">
-            <Link to="/">Voltar</Link>
+            <Link to="/" style={{ textDecoration: 'none' }}>Voltar</Link>
           </FormItems>
 
         </Form>

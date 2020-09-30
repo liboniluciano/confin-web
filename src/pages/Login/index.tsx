@@ -80,7 +80,7 @@ const Login: React.FC = () => {
           </FormItems>
 
           <FormItems>
-            <Link to="/signUp">Desejo me cadastrar</Link>
+            <Link to="/signUp" style={{ textDecoration: 'none' }}>Desejo me cadastrar</Link>
           </FormItems>
 
         </Form>

@@ -7,8 +7,8 @@ import TransactionsList from '../pages/TransactionsList';
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/"  exact component={Transactions} />
-      <Route path="/teste" component={TransactionsList}/>
+      <Route path="/" exact component={Transactions} />
+      <Route path="/transactions" component={TransactionsList}/>
     </BrowserRouter>
   );
 }

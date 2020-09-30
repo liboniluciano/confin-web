@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   return (
     <MenuContent>
       {signed ? <> 
-        <Link to="/teste" style={{ textDecoration: 'none' }}>
+        <Link to="/transactions" style={{ textDecoration: 'none' }}>
         <ItemMenu>TRANSAÇÕES</ItemMenu>
         </Link>
       </> : null }
