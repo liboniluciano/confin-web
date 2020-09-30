@@ -21,17 +21,17 @@ const Header: React.FC = () => {
   return (
     <MenuContent>
       {signed ? <> 
-        <Link to="/transactions" style={{ textDecoration: 'none' }}>
+        <Link to="/transactions" style={{ textDecoration: 'none', cursor: 'pointer' }}>
         <ItemMenu>TRANSAÇÕES</ItemMenu>
         </Link>
       </> : null }
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/" style={{ textDecoration: 'none',  cursor: 'pointer' }}>
         <ItemMenu>
           <HeaderImg />
         </ItemMenu>
       </Link>
       {signed ? <> 
-        <ItemMenu onClick={logOut}>SAIR</ItemMenu>
+        <ItemMenu onClick={logOut} style={{cursor: 'pointer'}}>SAIR</ItemMenu>
       </> : null }
     </MenuContent>
   );

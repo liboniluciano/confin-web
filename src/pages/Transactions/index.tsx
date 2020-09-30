@@ -107,7 +107,7 @@ const Transactions: React.FC = () => {
 
           <FormItems className="form-items">
             <Button type='submit' onSubmit={onSubmit}>Cadastrar</Button>
-            <Link to="/teste">
+            <Link to="/transactions">
               <Button type='button' onSubmit={onSubmit}>Saldo</Button>
             </Link>
           </FormItems>
