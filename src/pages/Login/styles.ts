@@ -20,7 +20,6 @@ export const Fieldset = styled.fieldset`
   }
 `;
 
-
 export const Title = styled.h1`
   color: #fff;
   text-align: center;
@@ -43,7 +42,6 @@ export const FormItems = styled.div`
 
 export const LabelInput = styled.label`
   color: #fff;
-
 `;
 
 export const Input = styled.input`
@@ -61,6 +59,12 @@ export const Input = styled.input`
     width: 50rem;
     font-size: 2rem;
   }
+`;
+
+export const LabelError = styled.label`
+  color: #ea5455;
+  font-size: 1.3rem;
+  text-align: center;
 `;
 
 export const Button = styled.button`

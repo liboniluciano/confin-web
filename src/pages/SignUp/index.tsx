@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 
 import api from '../../services/api';
 
-import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput } from './styles';
+import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput, LabelError } from './styles';
 
 interface IFormInput {
   name: string;
@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
               }
             })}
             />
-            {errors.name && errors.name.message}
+            <LabelError>{errors.name && errors.name.message}</LabelError>
           </FormItems>
           <FormItems className="form-items">
             <LabelInput>E-mail</LabelInput>
@@ -73,8 +73,9 @@ const SignUp: React.FC = () => {
               }
             })}
             />
-            {errors.mail && errors.mail.message}
+            <LabelError>{errors.mail && errors.mail.message}</LabelError>
           </FormItems>
+
           <FormItems className="form-items">
             <LabelInput>Senha</LabelInput>
             <Input className="input" name="password" type="password" ref={register({
@@ -89,12 +90,13 @@ const SignUp: React.FC = () => {
               }
             })}
             />
-            {errors.password && errors.password.message}
-
+            <LabelError>{errors.password && errors.password.message}</LabelError>
           </FormItems>
+
           <FormItems className="form-items">
             <Button type='submit' onSubmit={onSubmit}>Entrar</Button>
           </FormItems>
+          
           <FormItems className="form-items">
             <Link to="/">Voltar</Link>
           </FormItems>

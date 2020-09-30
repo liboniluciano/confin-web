@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import { useAuth } from '../../contexts/auth';
 import api from '../../services/api';
 
-import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput } from './styles';
+import { Container, Fieldset, Title, Form, FormItems, Input, Button, LabelInput, LabelError } from './styles';
 
 interface IFormInput {
   mail: string;
@@ -55,7 +55,7 @@ const Login: React.FC = () => {
               }
             })}
             />
-            {errors.mail && errors.mail.message}
+            <LabelError>{errors.mail && errors.mail.message}</LabelError>
           </FormItems>
 
           <FormItems>
@@ -72,7 +72,7 @@ const Login: React.FC = () => {
               }
             })}
             />
-            {errors.password && errors.password.message}
+            <LabelError>{errors.password && errors.password.message}</LabelError>
           </FormItems>
 
           <FormItems>
