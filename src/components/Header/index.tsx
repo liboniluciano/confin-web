@@ -8,6 +8,8 @@ import { MenuContent, ItemMenu, HeaderImg } from './styles';
 
 const Header: React.FC = () => {
   const { push } = useHistory();
+
+  /** Recuperando se o usuário está logado e a função de logout do hook personalizado */
   const { signed, Logout } = useAuth();
 
   const logOut = () => {
@@ -20,6 +22,7 @@ const Header: React.FC = () => {
 
   return (
     <MenuContent>
+      {/* Manipulando visibilidade de acordo com o login */}
       {signed ? <> 
         <Link to="/transactions" style={{ textDecoration: 'none', cursor: 'pointer' }}>
         <ItemMenu>TRANSAÇÕES</ItemMenu>

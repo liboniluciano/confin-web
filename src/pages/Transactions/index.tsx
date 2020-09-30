@@ -23,24 +23,24 @@ interface TypeTransaction {
 const Transactions: React.FC = () => {
   const [typeTransaction, setTypeTransaction] = useState([]);
 
+  /** Responsável por buscar os tipos de transação, salvar em um estado e mostrar no option */
   const findTypesTransactions = async () => {
     const transactions = await api.get('/typesTransactions');
 
     setTypeTransaction(transactions.data);
   }
 
+  /** Toda vez que a tela é carregada, busca as transações do cliente */
   useEffect(() => {
     findTypesTransactions();
   }, []);
 
+  /** API do react-hook-form */
   const { register, handleSubmit, errors, reset } = useForm<IFormInput>();
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
-
+    /** Tento criar uma nova transação (token já foi inserido quando loga -> contexto) */
     const request = await api.post('/usersTransactions', {
-      headers: {
-        Authorization: sessionStorage.getItem('@AppConFin:token')
-      },
       name,
       value,
       typeTransaction
@@ -52,6 +52,7 @@ const Transactions: React.FC = () => {
       return err.response;
     });
 
+    /** Mensagem para o cliente de acordo com a requisição */
     if (request.status === 201) {
       toast.success('Transação criada com sucesso!');
     }
@@ -60,6 +61,7 @@ const Transactions: React.FC = () => {
       toast.error(request.data.erro);
     }
 
+    /** Limpo o formulário */
     reset();
   });
 
@@ -111,6 +113,7 @@ const Transactions: React.FC = () => {
               <Button type='button' onSubmit={onSubmit}>Saldo</Button>
             </Link>
           </ButtonsContainer>
+
         </Form>
       </Fieldset>
 

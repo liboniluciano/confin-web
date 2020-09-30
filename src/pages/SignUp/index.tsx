@@ -17,10 +17,14 @@ interface IFormInput {
 }
 
 const SignUp: React.FC = () => {
+  /** Recurso para navegar entre as telas */
   const { push } = useHistory();
 
+  /** API do react-hook-form */
   const { register, handleSubmit, errors } = useForm<IFormInput>();
+
   const onSubmit = handleSubmit(async ({ name, mail, password }: IFormInput) => {
+    /** Request para cadastrar o usuário */
     const request = await api.post('/users', {
       name,
       mail,
@@ -31,11 +35,13 @@ const SignUp: React.FC = () => {
       return err.response;
     });
 
+    /** Se deu sucesso, redireciono para o Login */
     if (request.status === 201) {
       toast.success('Cadastro realizado com sucesso!');
       push('/');
     }
-    
+     
+    /** Se deu erro, exibo a mensagem de erro (validações da API) */
     if (request.status === 400) {
       toast.error(request.data.message);
     }
@@ -47,6 +53,7 @@ const SignUp: React.FC = () => {
       <Fieldset>
         <Title>Cadastrar</Title>
         <Form onSubmit={onSubmit}>
+
           <FormItems className="form-items">
             <LabelInput>Nome</LabelInput>
             <Input className="input" name="name" ref={register({
@@ -63,6 +70,7 @@ const SignUp: React.FC = () => {
             />
             <LabelError>{errors.name && errors.name.message}</LabelError>
           </FormItems>
+          
           <FormItems className="form-items">
             <LabelInput>E-mail</LabelInput>
             <Input className="input" name="mail" type="email" ref={register({

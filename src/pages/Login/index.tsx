@@ -15,12 +15,15 @@ interface IFormInput {
 }
 
 const Login: React.FC = () => {
+  /** Recuperando contexto (usuário logado) */
   const context = useAuth();
 
+  /** API do react-hook-form */
   const { register, handleSubmit, errors } = useForm<IFormInput>();
+
   const onSubmit = handleSubmit(async ({ mail, password }: IFormInput) => {
 
-    /** Solução provisória */
+    /** Tentativa de logar na aplicação*/
     const request = await api.post('/session', {
       mail,
       password
@@ -30,11 +33,13 @@ const Login: React.FC = () => {
       return err.response;
     });
 
+    /** Moostro o retorno caso dê erro (usuario inexistente, senha incorreta) */
     if (request.status === 401) {
       toast.error(request.data.message);
       return;
     }
 
+    /** Salvo este usuário válido no contexto */
     context.Login(mail, password);
   });
 

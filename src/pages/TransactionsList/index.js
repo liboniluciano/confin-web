@@ -12,28 +12,21 @@ const TransactionsList = () => {
   const [balance, setBalance] = useState([]);
 
     const getUserTransactions = async () => {
-      const response = await api.get('/usersTransactions', {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('@AppConFin:token')}`
-        }
-      });
+      /** Busco todas as transações do cliente (token já foi inserido quando loga -> contexto) */
+      const response = await api.get('/usersTransactions');
 
       setTransactions(response.data);
-      console.log('response.data: ', response.data.length);
     }
   
     const getUserBalance = async () => {
-      const response = await api.get('/balance', {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('@AppConFin:token')}`
-        }
-      });
+      /** Busco o balanço das transações do cliente  (token já foi inserido quando loga -> contexto) */
+      const response = await api.get('/balance');
 
       setBalance(response.data.balance);
-      console.log('api balance', response.data);
     }
 
   useEffect(() => {
+    /** Busco todas as transações e o balanço do cliente quando o componente é criado */
     const _load = async () => {
       await getUserTransactions();
       await getUserBalance();
@@ -68,7 +61,10 @@ const TransactionsList = () => {
           </BalanceInfo>
         </BalanceContent>
      
-        {
+        { 
+          /** Manipulo visibilidade e monto grid com as transações do cliente
+           * utilizando uma lib que monta o grid através de uma massa de dados
+           */
           !isLoading && transactions && transactions.length > 0 && 
             <ReactFlexyTable className="table-transacitons"
             data={transactions ?? []}
