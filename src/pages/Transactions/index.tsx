@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
-import { Container, Fieldset, Title, Form, FormItems, Input, LabelError, Button, LabelInput, Select, OptionSelect, ButtonsContainer } from './styles';
+import {
+  Container, Fieldset, Title, Form, FormItems, Input, LabelError, Button, LabelInput, Select, OptionSelect, ButtonsContainer,
+} from './styles';
 
 import Header from '../../components/Header';
 
@@ -28,7 +30,7 @@ const Transactions: React.FC = () => {
     const transactions = await api.get('/typesTransactions');
 
     setTypeTransaction(transactions.data);
-  }
+  };
 
   /** Toda vez que a tela é carregada, busca as transações do cliente */
   useEffect(() => {
@@ -36,14 +38,16 @@ const Transactions: React.FC = () => {
   }, []);
 
   /** API do react-hook-form */
-  const { register, handleSubmit, errors, reset } = useForm<IFormInput>();
+  const {
+    register, handleSubmit, errors, reset,
+  } = useForm<IFormInput>();
 
   const onSubmit = handleSubmit(async ({ name, value, typeTransaction }: IFormInput) => {
     /** Tento criar uma nova transação (token já foi inserido quando loga -> contexto) */
     const request = await api.post('/usersTransactions', {
       name,
       value,
-      typeTransaction
+      typeTransaction,
     }).then((response) => {
       console.log(response);
       return response;
@@ -74,43 +78,50 @@ const Transactions: React.FC = () => {
 
           <FormItems>
             <LabelInput>Nome</LabelInput>
-            <Input className="input" name="name" ref={register({
-              required: "Campo obrigatório",
-            })}
+            <Input
+              className="input"
+              name="name"
+              ref={register({
+                required: 'Campo obrigatório',
+              })}
             />
             <LabelError>{errors.name && errors.name.message}</LabelError>
           </FormItems>
 
           <FormItems className="form-items">
             <LabelInput>Valor</LabelInput>
-            <Input name="value" type="text" ref={register({
-              pattern: {
-                value: /^[0-9]{1,6}(\\.\\d{1,2})?$/,
-                message: 'São válidos valores numéricos'
-              },
-              required: "Campo obrigatório",
-            })}
+            <Input
+              name="value"
+              type="text"
+              ref={register({
+                pattern: {
+                  value: /^[0-9]{1,6}(\\.\\d{1,2})?$/,
+                  message: 'São válidos valores numéricos',
+                },
+                required: 'Campo obrigatório',
+              })}
             />
             <LabelError>{errors.value && errors.value.message}</LabelError>
           </FormItems>
 
           <FormItems className="form-items">
             <LabelInput>Tipo Transação</LabelInput>
-            <Select name="typeTransaction" ref={register({
-              required: "Campo obrigatório",
-            })} >
-              {typeTransaction.map((types: TypeTransaction) =>{
-                return (
-                  <OptionSelect key={types.id} value={types.id}>{types.name}</OptionSelect>
-                )
+            <Select
+              name="typeTransaction"
+              ref={register({
+                required: 'Campo obrigatório',
               })}
+            >
+              {typeTransaction.map((types: TypeTransaction) => (
+                <OptionSelect key={types.id} value={types.id}>{types.name}</OptionSelect>
+              ))}
             </Select>
           </FormItems>
 
           <ButtonsContainer>
-            <Button type='submit' onSubmit={onSubmit}>Cadastrar</Button>
+            <Button type="submit" onSubmit={onSubmit}>Cadastrar</Button>
             <Link to="/transactions">
-              <Button type='button' onSubmit={onSubmit}>Saldo</Button>
+              <Button type="button" onSubmit={onSubmit}>Saldo</Button>
             </Link>
           </ButtonsContainer>
 
@@ -119,6 +130,6 @@ const Transactions: React.FC = () => {
 
     </Container>
   );
-}
+};
 
 export default Transactions;
